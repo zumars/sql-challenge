@@ -1,5 +1,11 @@
 <?php
 include_once 'dbconfig.php';
+if(isset($_GET['delete_id']))
+{
+ $sql_query="DELETE FROM users WHERE user_id=".$_GET['delete_id'];
+ mysql_query($sql_query);
+ header("Location: $_SERVER[PHP_SELF]");
+}
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +21,7 @@ include_once 'dbconfig.php';
  <div id="content">
     <table align="center">
     <tr>
-    <th colspan="5"><a href="adddata.php">add data here.</a></th>
+    <th colspan="5"><a href="add_data.php">add data here.</a></th>
     </tr>
     <th>Title</th>
     <th>Text</th>
